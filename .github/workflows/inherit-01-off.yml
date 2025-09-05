@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-base-inc:
-    uses: ./base-dec.yml
+    uses: arccoder/gh-ac-base-instance-count/.github/workflows/base-dec.yml@main
 
   print-variable:
     needs: call-base-inc
