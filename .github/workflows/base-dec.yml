@@ -1,4 +1,4 @@
-name: Increment Base Instance Count
+name: Decrement Base Instance Count
 
 on:
   workflow_dispatch:
