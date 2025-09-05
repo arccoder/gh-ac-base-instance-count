@@ -1,0 +1,20 @@
+name: Inherit 01 ON
+#Call Base-Inc and Print Variable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-base-inc:
+    uses: ./.github/workflows/base-inc.yml
+
+  print-variable:
+    needs: call-base-inc
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print BASE_INSTANCE_COUNT
+        run: |
+          value=$(gh variable get BASE_INSTANCE_COUNT --repo ${{ github.repository }} --json value --jq '.value')
+          echo "BASE_INSTANCE_COUNT is $value"
+        env:
+          GH_TOKEN: ${{ secrets.GH_ACTIONS_FGT }}
