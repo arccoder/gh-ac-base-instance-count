@@ -2,9 +2,6 @@ name: Increment Base Instance Count
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   increment-variable:
