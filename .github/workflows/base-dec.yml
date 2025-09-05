@@ -16,7 +16,7 @@ jobs:
           value=$(gh variable get base_instance_count --repo ${{ github.repository }} --json value --jq '.value')
           echo "current_value=$value" >> $GITHUB_OUTPUT
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.gh-actions-pat }}
 
       - name: Increment value
         id: inc_var
@@ -28,4 +28,4 @@ jobs:
         run: |
           gh variable set base_instance_count --repo ${{ github.repository }} --body "${{ steps.inc_var.outputs.new_value }}"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.gh-actions-pat }}
