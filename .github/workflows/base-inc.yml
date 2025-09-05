@@ -29,3 +29,7 @@ jobs:
           gh variable set BASE_INSTANCE_COUNT --repo ${{ github.repository }} --body "${{ steps.inc_var.outputs.new_value }}"
         env:
           GH_TOKEN: ${{ secrets.GH_ACTIONS_FGT }}
+
+      - name: Print "Base workflow - Start" if value is 0
+        if: steps.get_var.outputs.current_value == '0'
+        run: echo "Base workflow - Start"

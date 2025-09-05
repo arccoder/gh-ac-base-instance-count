@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-base-inc:
-    uses: ./.github/workflows/base-inc.yml
+    uses: ./base-inc.yml
 
   print-variable:
     needs: call-base-inc
