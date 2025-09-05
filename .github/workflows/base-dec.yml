@@ -2,6 +2,7 @@ name: Decrement Base Instance Count
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   increment-variable:
