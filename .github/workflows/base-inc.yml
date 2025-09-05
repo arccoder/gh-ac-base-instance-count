@@ -13,7 +13,7 @@ jobs:
       - name: Get current value of base_instance_count
         id: get_var
         run: |
-          value=$(gh variable get base_instance_count --repo ${{ github.repository }} --jq '.value')
+          value=$(gh variable get base_instance_count --repo ${{ github.repository }} --json value --jq '.value')
           echo "current_value=$value" >> $GITHUB_OUTPUT
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
